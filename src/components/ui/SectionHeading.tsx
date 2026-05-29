@@ -22,11 +22,11 @@ export default function SectionHeading({
           {label}
         </div>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-balance">
+      <h2 className="text-3xl font-bold tracking-tight text-app-text sm:text-4xl lg:text-5xl text-balance">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg leading-relaxed text-white/40 text-balance">
+        <p className="mt-4 text-lg leading-relaxed text-app-text/40 text-balance">
           {description}
         </p>
       )}

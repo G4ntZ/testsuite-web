@@ -24,7 +24,7 @@ export default function Hero() {
             {t.hero.badge}
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl text-balance animate-fade-in animate-delay-100">
+          <h1 className="text-4xl font-bold tracking-tight text-app-text sm:text-5xl md:text-6xl lg:text-7xl text-balance animate-fade-in animate-delay-100">
             {t.hero.title}
             <br />
             <span className="gradient-text-brand">
@@ -32,7 +32,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/40 sm:text-xl text-balance animate-fade-in animate-delay-200">
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-app-text/40 sm:text-xl text-balance animate-fade-in animate-delay-200">
             {t.hero.description}
           </p>
 
@@ -50,10 +50,10 @@ export default function Hero() {
           <div className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 animate-fade-in animate-delay-400">
             {t.hero.stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center gap-1">
-                <span className="text-3xl font-bold text-white sm:text-4xl">
+                <span className="text-3xl font-bold text-app-text sm:text-4xl">
                   {stat.value}
                 </span>
-                <span className="text-sm text-white/30 text-center">
+                <span className="text-sm text-app-text/30 text-center">
                   {stat.label}
                 </span>
               </div>
@@ -62,7 +62,7 @@ export default function Hero() {
         </div>
       </Container>
 
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0A0A0B] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-app-bg to-transparent pointer-events-none" />
     </section>
   )
 }

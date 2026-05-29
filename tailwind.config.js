@@ -37,29 +37,25 @@ export default {
           900: '#1E3A8A',
           950: '#172554',
         },
-        surface: {
-          DEFAULT: 'rgba(255, 255, 255, 0.03)',
-          hover: 'rgba(255, 255, 255, 0.06)',
-          active: 'rgba(255, 255, 255, 0.08)',
-          border: 'rgba(255, 255, 255, 0.06)',
-        },
-        glass: {
-          DEFAULT: 'rgba(255, 255, 255, 0.04)',
-          strong: 'rgba(255, 255, 255, 0.08)',
-          border: 'rgba(255, 255, 255, 0.08)',
+        app: {
+          bg: 'rgb(var(--app-bg-rgb) / <alpha-value>)',
+          text: 'rgb(var(--app-text-rgb) / <alpha-value>)',
+          glass: 'var(--app-glass-bg)',
+          'glass-border': 'var(--app-glass-border)',
+          header: 'var(--app-header-bg)',
         },
       },
       backgroundImage: {
-        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.15), transparent)',
-        'hero-glow-2': 'radial-gradient(ellipse 60% 50% at 50% 80%, rgba(79, 110, 247, 0.1), transparent)',
-        'card-glow': 'radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.08), transparent 70%)',
-        'grid-pattern': 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgb(var(--app-text-rgb) / 0.08), transparent)',
+        'hero-glow-2': 'radial-gradient(ellipse 60% 50% at 50% 80%, rgb(var(--app-text-rgb) / 0.05), transparent)',
+        'card-glow': 'radial-gradient(ellipse at 50% 0%, rgb(var(--app-text-rgb) / 0.04), transparent 70%)',
+        'hero-overlay': 'var(--app-hero-overlay)',
       },
       boxShadow: {
         glow: '0 0 40px -12px rgba(37, 99, 235, 0.3)',
         'glow-lg': '0 0 80px -20px rgba(37, 99, 235, 0.25)',
-        card: '0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05)',
-        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+        card: '0 1px 2px rgba(0, 0, 0, 0.15), 0 0 0 1px rgb(var(--app-text-rgb) / 0.06)',
+        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgb(var(--app-text-rgb) / 0.1)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
@@ -68,7 +64,6 @@ export default {
         'scale-in': 'scaleIn 0.3s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-        'border-beam': 'borderBeam 4s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -94,10 +89,6 @@ export default {
         pulseGlow: {
           '0%, 100%': { opacity: '0.6' },
           '50%': { opacity: '1' },
-        },
-        borderBeam: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
         },
       },
       backgroundSize: {

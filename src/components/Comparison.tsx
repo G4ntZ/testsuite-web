@@ -8,9 +8,9 @@ function renderCell(value: boolean | string | number) {
   if (value === true)
     return <Check className="h-4 w-4 text-emerald-400 mx-auto" />
   if (value === false)
-    return <Minus className="h-4 w-4 text-white/10 mx-auto" />
+    return <Minus className="h-4 w-4 text-app-text/10 mx-auto" />
   return (
-    <span className="text-xs font-medium text-white/40">{String(value)}</span>
+    <span className="text-xs font-medium text-app-text/40">{String(value)}</span>
   )
 }
 
@@ -48,16 +48,16 @@ export default function Comparison() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-white/[0.04]">
+                <tr className="border-b border-app-text/[0.04]">
                   {t.comparison.columns.map((col, i) => (
                     <th
                       key={col}
                       className={`py-4 px-6 text-xs font-medium uppercase tracking-wider ${
                         i === 0
-                          ? 'text-left text-white/30'
+                          ? 'text-left text-app-text/30'
                           : i === 1
                           ? 'text-center text-brand-400 bg-brand-500/[0.03]'
-                          : 'text-center text-white/20'
+                          : 'text-center text-app-text/20'
                       }`}
                     >
                       {col}
@@ -69,11 +69,11 @@ export default function Comparison() {
                 {t.comparison.rows.map((row, i) => (
                   <tr
                     key={row.name}
-                    className={`border-b border-white/[0.02] transition-colors hover:bg-white/[0.01] ${
-                      i % 2 === 0 ? 'bg-white/[0.005]' : ''
+                    className={`border-b border-app-text/[0.02] transition-colors hover:bg-app-text/[0.01] ${
+                      i % 2 === 0 ? 'bg-app-text/[0.005]' : ''
                     }`}
                   >
-                    <td className="py-3.5 px-6 text-white/60">{row.name}</td>
+                    <td className="py-3.5 px-6 text-app-text/60">{row.name}</td>
                     <td className="py-3.5 px-6 bg-brand-500/[0.02]">
                       {renderCell(row.testsuite)}
                     </td>

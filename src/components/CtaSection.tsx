@@ -30,13 +30,13 @@ export default function CtaSection() {
               {t.cta.badge}
             </div>
 
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-balance">
+            <h2 className="text-3xl font-bold tracking-tight text-app-text sm:text-4xl lg:text-5xl text-balance">
               {t.cta.title}
               <br />
               <span className="gradient-text-brand">{t.cta.titleHighlight}</span>
             </h2>
 
-            <p className="mt-5 text-base leading-relaxed text-white/35 max-w-lg mx-auto text-balance">
+            <p className="mt-5 text-base leading-relaxed text-app-text/35 max-w-lg mx-auto text-balance">
               {t.cta.description}
             </p>
 
@@ -50,7 +50,7 @@ export default function CtaSection() {
               </Button>
             </div>
 
-            <p className="mt-6 text-xs text-white/20">
+            <p className="mt-6 text-xs text-app-text/20">
               {t.cta.footnote}
             </p>
           </div>

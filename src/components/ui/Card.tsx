@@ -16,7 +16,7 @@ export default function Card({
     <div
       className={`glass rounded-xl p-6 transition-all duration-300 ${
         hover
-          ? 'hover:shadow-card-hover hover:border-white/10 hover:-translate-y-0.5 cursor-pointer'
+          ? 'hover:shadow-card-hover hover:border-app-text/10 hover:-translate-y-0.5 cursor-pointer'
           : ''
       } ${glow ? 'relative overflow-hidden' : ''} ${className}`}
       {...props}

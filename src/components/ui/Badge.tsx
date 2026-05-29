@@ -4,7 +4,7 @@ interface BadgeProps {
 }
 
 const variants = {
-  default: 'bg-surface text-white/50 border-white/5',
+  default: 'bg-app-text/[0.04] text-app-text/50 border-app-text/[0.06]',
   brand: 'bg-brand-500/10 text-brand-400 border-brand-500/20',
   success: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
   warning: 'bg-amber-500/10 text-amber-400 border-amber-500/20',

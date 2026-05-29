@@ -59,25 +59,25 @@ function ModuleCard({
         <div
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${color} bg-opacity-10`}
         >
-          <Icon className="h-6 w-6 text-white" />
+          <Icon className="h-6 w-6 text-app-text" />
         </div>
         <div className="min-w-0">
-          <h3 className="text-base font-semibold text-white">{title}</h3>
-          <p className="text-sm text-white/40 mt-0.5">{subtitle}</p>
+          <h3 className="text-base font-semibold text-app-text">{title}</h3>
+          <p className="text-sm text-app-text/40 mt-0.5">{subtitle}</p>
         </div>
       </div>
 
       <ul className="space-y-2">
         {features.map((feat) => (
-          <li key={feat} className="flex items-start gap-2.5 text-sm text-white/50">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-white/20" />
+          <li key={feat} className="flex items-start gap-2.5 text-sm text-app-text/50">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-app-text/20" />
             {feat}
           </li>
         ))}
       </ul>
 
-      <div className="mt-5 pt-4 border-t border-white/[0.04]">
-        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-white/25 group-hover:text-brand-400 transition-colors cursor-pointer">
+      <div className="mt-5 pt-4 border-t border-app-text/[0.04]">
+        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-app-text/25 group-hover:text-brand-400 transition-colors cursor-pointer">
           {learnMore}
           <ArrowRight className="h-3 w-3" />
         </span>
@@ -135,8 +135,8 @@ export default function Modules() {
               key={stat.label}
               className="glass rounded-xl p-4 text-center"
             >
-              <div className="text-2xl font-bold text-white">{stat.value}</div>
-              <div className="text-xs text-white/30 mt-1">{stat.label}</div>
+              <div className="text-2xl font-bold text-app-text">{stat.value}</div>
+              <div className="text-xs text-app-text/30 mt-1">{stat.label}</div>
             </div>
           ))}
         </div>

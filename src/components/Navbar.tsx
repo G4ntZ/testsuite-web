@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { Menu, X, ArrowUpRight, Globe, Check } from 'lucide-react'
+import { Menu, X, ArrowUpRight, Globe, Check, Sun, Moon } from 'lucide-react'
 import Button from './ui/Button'
 import { useT } from '../i18n/useT'
+import { useTheme } from '../hooks/useTheme'
 import type { Language } from '../i18n/types'
 
 const FLAGS: Record<Language, string> = {
@@ -16,6 +17,7 @@ const LABELS: Record<Language, string> = {
 
 export default function Navbar() {
   const { t, lang, setLanguage } = useT()
+  const { theme, toggleTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
@@ -43,7 +45,7 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0A0A0B]/80 backdrop-blur-xl border-b border-white/[0.05]'
+          ? 'bg-app-bg/80 backdrop-blur-xl border-b border-app-text/[0.04]'
           : 'bg-transparent'
       }`}
     >
@@ -61,25 +63,37 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-lg px-3.5 py-2 text-sm text-white/50 transition-colors hover:text-white hover:bg-surface-hover"
+              className="rounded-lg px-3.5 py-2 text-sm text-app-text/50 transition-colors hover:text-app-text hover:bg-app-text/[0.06]"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center rounded-lg p-2 text-app-text/50 transition-colors hover:text-app-text hover:bg-app-text/[0.06]"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </button>
+
           <div ref={langRef} className="relative">
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}
-              className="flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm text-white/50 transition-colors hover:text-white hover:bg-surface-hover"
+              className="flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm text-app-text/50 transition-colors hover:text-app-text hover:bg-app-text/[0.06]"
               aria-label={t.nav.language}
             >
               <Globe className="h-4 w-4" />
               <span className="text-xs">{FLAGS[lang]}</span>
             </button>
             {isLangOpen && (
-              <div className="absolute right-0 top-full mt-1 w-40 glass rounded-xl border border-white/[0.08] py-1 shadow-2xl animate-scale-in origin-top-right">
+              <div className="absolute right-0 top-full mt-1 w-40 glass rounded-xl py-1 shadow-2xl animate-scale-in origin-top-right">
                 {(Object.entries(LABELS) as [Language, string][]).map(([key, label]) => (
                   <button
                     key={key}
@@ -87,7 +101,7 @@ export default function Navbar() {
                       setLanguage(key)
                       setIsLangOpen(false)
                     }}
-                    className="flex w-full items-center gap-2.5 px-3.5 py-2 text-sm text-white/70 hover:text-white hover:bg-surface-hover transition-colors"
+                    className="flex w-full items-center gap-2.5 px-3.5 py-2 text-sm text-app-text/50 hover:text-app-text hover:bg-app-text/[0.06] transition-colors"
                   >
                     <span>{FLAGS[key]}</span>
                     <span>{label}</span>
@@ -106,29 +120,43 @@ export default function Navbar() {
           <Button size="sm">{t.nav.getStarted}</Button>
         </div>
 
-        <button
-          className="flex md:hidden p-2 rounded-lg text-white/60 hover:text-white hover:bg-surface-hover transition-colors"
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center rounded-lg p-2 text-app-text/50 transition-colors hover:text-app-text hover:bg-app-text/[0.06]"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </button>
+
+          <button
+            className="flex p-2 rounded-lg text-app-text/50 hover:text-app-text hover:bg-app-text/[0.06] transition-colors"
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       {isMobileOpen && (
-        <div className="border-t border-white/[0.05] bg-[#0A0A0B]/95 backdrop-blur-xl md:hidden animate-slide-down">
+        <div className="border-t border-app-text/[0.04] bg-app-bg/95 backdrop-blur-xl md:hidden animate-slide-down">
           <div className="flex flex-col gap-1 px-4 py-4">
             {t.nav.items.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-4 py-3 text-sm text-white/50 transition-colors hover:text-white hover:bg-surface-hover"
+                className="rounded-lg px-4 py-3 text-sm text-app-text/50 transition-colors hover:text-app-text hover:bg-app-text/[0.06]"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <div className="mt-2 pt-3 border-t border-white/[0.05] grid grid-cols-2 gap-2">
+            <div className="mt-2 pt-3 border-t border-app-text/[0.04] grid grid-cols-2 gap-2">
               {(Object.entries(LABELS) as [Language, string][]).map(([key, label]) => (
                 <button
                   key={key}
@@ -139,7 +167,7 @@ export default function Navbar() {
                   className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition-colors ${
                     lang === key
                       ? 'bg-brand-500/10 text-brand-400'
-                      : 'text-white/50 hover:text-white hover:bg-surface-hover'
+                      : 'text-app-text/50 hover:text-app-text hover:bg-app-text/[0.06]'
                   }`}
                 >
                   <span>{FLAGS[key]}</span>
@@ -147,7 +175,7 @@ export default function Navbar() {
                 </button>
               ))}
             </div>
-            <div className="mt-3 pt-3 border-t border-white/[0.05]">
+            <div className="mt-3 pt-3 border-t border-app-text/[0.04]">
               <Button className="w-full" size="md">
                 {t.nav.getStarted}
               </Button>

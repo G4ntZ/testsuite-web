@@ -19,7 +19,7 @@ export default function Architecture() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation()
 
   return (
-    <section className="section-padding relative border-y border-white/[0.03]">
+    <section className="section-padding relative border-y border-app-text/[0.03]">
       <Container>
         <div
           ref={headerRef}
@@ -66,7 +66,7 @@ function ArchitectureDiagram() {
             <div className="w-3 h-3 rounded-full bg-amber-400/60" />
             <div className="w-3 h-3 rounded-full bg-emerald-400/60" />
           </div>
-          <span className="text-[11px] text-white/20 font-mono ml-2">
+          <span className="text-[11px] text-app-text/20 font-mono ml-2">
             {d.title}
           </span>
         </div>
@@ -85,21 +85,21 @@ function ArchitectureDiagram() {
         </div>
 
         <div className="flex justify-center py-1">
-          <div className="w-px h-4 bg-white/10" />
+          <div className="w-px h-4 bg-app-text/10" />
         </div>
 
-        <div className="rounded-lg bg-white/[0.03] border border-white/[0.05] py-3 px-4">
-          <span className="text-xs font-medium text-white/30 font-mono">
+        <div className="rounded-lg bg-app-text/[0.03] border border-app-text/[0.05] py-3 px-4">
+          <span className="text-xs font-medium text-app-text/30 font-mono">
             {d.functions}
           </span>
         </div>
 
         <div className="flex justify-center py-1">
-          <div className="w-px h-4 bg-white/10" />
+          <div className="w-px h-4 bg-app-text/10" />
         </div>
 
-        <div className="rounded-lg bg-white/[0.02] border border-white/[0.04] py-3 px-4">
-          <span className="text-xs font-medium text-white/20 font-mono">
+        <div className="rounded-lg bg-app-text/[0.02] border border-app-text/[0.04] py-3 px-4">
+          <span className="text-xs font-medium text-app-text/20 font-mono">
             {d.jiraApi}
           </span>
         </div>
@@ -155,12 +155,12 @@ function StackItem({
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.04]">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-app-text/[0.04]">
         <Icon className={`h-5 w-5 ${color}`} />
       </div>
       <div className="min-w-0">
-        <p className="text-sm font-medium text-white">{name}</p>
-        <p className="text-xs text-white/30 mt-0.5">{description}</p>
+        <p className="text-sm font-medium text-app-text">{name}</p>
+        <p className="text-xs text-app-text/30 mt-0.5">{description}</p>
       </div>
     </div>
   )

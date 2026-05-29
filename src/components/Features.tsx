@@ -46,12 +46,12 @@ function FeatureCard({
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-500/10 ring-1 ring-brand-500/20 group-hover:bg-brand-500/15 transition-colors">
             <Icon className="h-5 w-5 text-brand-400" />
           </div>
-          <span className="text-[11px] font-medium uppercase tracking-wider text-white/20">
+          <span className="text-[11px] font-medium uppercase tracking-wider text-app-text/20">
             {category}
           </span>
         </div>
-        <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
-        <p className="text-sm leading-relaxed text-white/40">{description}</p>
+        <h3 className="text-base font-semibold text-app-text mb-2">{title}</h3>
+        <p className="text-sm leading-relaxed text-app-text/40">{description}</p>
       </Card>
     </div>
   )
